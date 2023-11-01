@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bmicalculator</title>
+    <script src="../static/bootstrap/js/jquery-3.4.0.js"></script>
+    <script src="../static/bootstrap/js/popper.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/style.css">
+</head>
+<body>
+
+<h1 class="header">Simple BMI Calculator</h1>
+<div class="my-card ">
+    <div class="form-div">
+        <form method="POST" action="{% url 'home-url' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" required placeholder="Enter Name" name="jina">
+            </div>
+            <div class="form-group">
+                <label>Weight</label>
+                <input type="text" class="form-control" required placeholder="Enter weight in Kg" name="weight">
+            </div>
+            <div class="form-group">
+                <label>Height</label>
+                <input type="text" class="form-control" required placeholder="Enter Height in metres" name="height">
+            </div>
+            <div class="button">
+               <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+    <hr>
+    <div class="results-div">
+
+        {% if result <= 18  %}
+            <h6>Hello {{ name }}, the results are as follows</h6>
+            <h4>BMI: {{ result }}</h4>
+            <h4>State: <span class="text-danger">Underweight</span></h4>
+        {% elif result >= 18.1 and result <= 29 %}
+            <h6>Hello {{ name }}, the results are as follows</h6>
+            <h4>BMI: {{ result }}</h4>
+            <h4>State: <span class="text-success">Normal Weight</span></h4>
+        {% elif result >= 29.1 and result <= 34 %}
+            <h6>Hello {{ name }}, the results are as follows</h6>
+            <h4>BMI: {{ result }}</h4>
+            <h4>State: <span class="text-warning">Overweight</span></h4>
+        {% elif result > 34%}
+            <h6>Hello {{ name }}, the  results are as follows</h6>
+            <h4>BMI: {{ result }}</h4>
+            <h4>State: <span class="text-danger">Obese</span></h4>
+        {% endif %}
+
+
+    </div>
+</div>
+
+</body>
+</html>

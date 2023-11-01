@@ -1,0 +1,30 @@
+.my-card{
+    margin-top: 20px;
+    width:unset;
+    background-color: #fffef0;
+    border-radius: 12px;
+    height: 80vh;
+    margin-right: 300px;
+    margin-left: 300px;
+    box-shadow: 0 2px 8px 2px;
+}
+.form-div{
+    padding-right:100px ;
+    padding-top: 10px;
+    padding-left: 50px;
+}
+hr{
+    font-weight: bold;
+}
+.results-div{
+    margin-left:50px;
+
+}
+.header{
+    background-color: green;
+    color:white;
+    text-align: center;
+}
+.button{
+    text-align: center;
+}
